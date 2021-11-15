@@ -1,0 +1,263 @@
+h1,
+p {
+  font-family: Lato;
+}
+
+.bigImageWrapper {
+  position: relative;
+  height: 600px;
+  width: 800px;
+  display: flex;
+  background-color: beige;
+}
+
+.imageSelectionButton {
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 24px;
+  height: 32px;
+  width: auto;
+  border: none;
+  background-color: transparent;
+  background-image: url('https://storage.yandexcloud.net/alfaleasing/model-overview/arrowSelector.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.imageSelectionButtonActive {
+  display: block;
+  opacity: 1;
+}
+
+.prevButton {
+  left: 24px;
+}
+
+.nextButton {
+  right: 24px;
+  transform: rotateX('180deg');
+}
+
+.bigImage {
+  height: 100%;
+  width: 100%;
+}
+
+.imagesList {
+  position: relative;
+  display: flex;
+  height: 90px;
+  width: 100%;
+}
+
+.imageWrapper {
+  position: relative;
+  height: 120px;
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+.imageWrapper:hover {
+  border-color: red;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.imageOverLimit {
+  position: absolute;
+  display: flex;
+  top: 0;
+  left: 0;
+  width: calc(100% - 10px);
+  height: calc(100% - 10px);
+  margin: 5px;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  line-height: 22px;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 5;
+}
+
+.anotherGallery {
+  position: relative;
+  height: 188px;
+  width: 250px;
+}
+
+.anotherGalleryImage {
+  height: 100%;
+  width: 100%;
+}
+
+.anotherGalleryListofSelect {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+}
+
+.anotherGallerySelect {
+  display: inline-block;
+  height: 100%;
+}
+
+.anotherGalleryListofDots {
+  position: absolute;
+  display: flex;
+  height: 5px;
+  width: 100%;
+  bottom: 10px;
+  left: 0;
+  opacity: 0;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+
+.anotherGalleryListofDotsActive {
+  opacity: 1;
+}
+
+.anotherGalleryDot {
+  height: 3px;
+  margin: 2px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.anotherGalleryDotSelected {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* ////////// modal //////////// */
+.modalWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+}
+
+.modalContent {
+  position: relative;
+  max-width: 1144px;
+  margin: 0 auto;
+  padding: 24px;
+  display: flex;
+}
+
+.miniatures {
+  position: sticky;
+  top: 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.miniaturesImage {
+  width: 106px;
+  height: auto;
+  margin: 0 24px 12px 0;
+  padding: 2px;
+  border: solid 2px transparent;
+  border-radius: 4px;
+}
+
+.miniaturesImage:hover {
+  border-color: #b6bcc3;
+}
+
+.miniaturesImageActive {
+  border-color: #ef3124;
+}
+
+.mainImageBlock {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.mainImage {
+  height: auto;
+  width: 100%;
+  margin-bottom: 8px;
+  border-radius: 4px;
+}
+
+.infoBlock {
+  position: sticky;
+  top: 24px;
+  height: 350px;
+  width: 360px;
+  margin-left: 24px;
+}
+
+.modalClose {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 32px;
+  width: 32px;
+  border: none;
+  border-radius: 50%;
+  background-image: url('');
+  background-color: #b6bcc3;
+  cursor: pointer;
+}
+
+.modelName {
+  margin: 0;
+  font-size: 14px;
+  line-height: 18px;
+  color: #0b1f35;
+}
+
+.modelPrice {
+  margin: 8px 0 0;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #0b1f35;
+}
+
+.modelFullPrice {
+  margin: 8px 0 0;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 17px;
+  color: #6d7986;
+}
+
+/* //////////  Select //////// */
+
+.field {
+  max-width: fit-content;
+}
+
+.optionsWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100%;
+  background-color: #fff;
+}
+
+.optionsWrapperOpen {
+  display: block;
+}
+
+.option {
+}
