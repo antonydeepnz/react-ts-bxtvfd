@@ -189,11 +189,18 @@ p {
   flex-direction: column;
 }
 
+.mainImageWrapper {
+  display: inline-block;
+  overflow: hidden;
+}
+
 .mainImage {
   height: auto;
   width: 100%;
+  display: block;
   margin-bottom: 8px;
   border-radius: 4px;
+  transition: 1s;
 }
 
 .infoBlock {

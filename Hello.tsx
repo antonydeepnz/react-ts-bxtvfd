@@ -72,7 +72,7 @@ export const Select = ({ value, options = [], popular = [], onSelect }) => {
         value={inputValue}
         onClick={handleInputFocus}
         onFocus={handleInputFocus}
-        onBlur={handleInputLoseFocus}
+        onBlur={() => {}}
       />
       <Options
         isOpen={isOpen}
@@ -124,12 +124,14 @@ export const ModalGallery = ({ visible, onClose }) => {
             </div>
             <div className="mainImageBlock">
               {images.map((image: string, idx: number) => (
-                <img
-                  key={idx}
-                  ref={(ref) => (imageRef.current[idx] = ref)}
-                  className="mainImage"
-                  src={image}
-                />
+                <div className="mainImageWrapper">
+                  <img
+                    key={idx}
+                    ref={(ref) => (imageRef.current[idx] = ref)}
+                    className="mainImage"
+                    src={image}
+                  />
+                </div>
               ))}
             </div>
             <div className="infoBlock">
