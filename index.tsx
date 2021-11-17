@@ -1,6 +1,7 @@
 import React, { Component, useState } from 'react';
 import { render } from 'react-dom';
 import { ModalGallery, Select } from './Hello';
+import { Modelcard } from './modelCard';
 
 const options = [
   { id: '1', label: 'Грейпфрут' },
@@ -40,6 +41,7 @@ const App = () => {
           setVisible(false);
         }}
       />
+      <Modelcard />
     </div>
   );
 };

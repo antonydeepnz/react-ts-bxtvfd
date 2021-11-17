@@ -1,0 +1,15 @@
+.modelCardWrapper {
+  display: flex;
+}
+
+.modelCardTitleBlock {
+}
+
+.modelCardCharacteristicsBlock {
+  display: flex;
+}
+
+.modelCardCharacteristicsCol {
+  display: flex;
+  flex-direction: column;
+}

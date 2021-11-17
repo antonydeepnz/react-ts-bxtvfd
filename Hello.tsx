@@ -25,19 +25,43 @@ const images = [
 
 const Options = ({
   isOpen,
+  selected = [],
   options = [],
   selector,
   onSelect,
 }: {
   isOpen: boolean;
+  selected?: any;
   options: any;
   selector: 'radio' | 'checkbox';
   onSelect: any;
 }) => {
+  console.warn(selected);
   return (
     <ul className={cn('optionsWrapper', { optionsWrapperOpen: isOpen })}>
+      <li>Любая</li>
+      {selected.length > 1 &&
+        selected.map(({ id, label }) => (
+          <li>
+            <input
+              type="checkbox"
+              className="option"
+              key={id}
+              value={id}
+              onClick={onSelect}
+            />
+            {label}
+          </li>
+        ))}
       {options.map(({ id, label }) => (
-        <li className="option" key={id} value={id} onClick={onSelect}>
+        <li>
+          <input
+            type="checkbox"
+            className="option"
+            key={id}
+            value={id}
+            onClick={onSelect}
+          />
           {label}
         </li>
       ))}
@@ -45,16 +69,20 @@ const Options = ({
   );
 };
 
+type TInputValue<T> = Array<T> & T;
+
 export const Select = ({ value, options = [], popular = [], onSelect }) => {
-  const [inputValue, setInputValue] = useState(null);
+  const [inputValue, setInputValue] = useState<any[]>([]);
   const [isOpen, setIsOpen] = useState(false);
 
   const optionsFormatted = useMemo(() => [], []);
 
   useEffect(() => {
-    setInputValue(
-      options.find(({ id }) => String(id) === String(value))?.label
-    );
+    value;
+    setInputValue([
+      ...inputValue.filter((el) => el !== undefined),
+      options.find(({ id }) => String(id) === String(value)),
+    ]);
   }, [value]);
 
   const handleInputFocus = () => {
@@ -76,6 +104,7 @@ export const Select = ({ value, options = [], popular = [], onSelect }) => {
       />
       <Options
         isOpen={isOpen}
+        selected={inputValue}
         options={options}
         selector={'radio'}
         onSelect={onSelect}
