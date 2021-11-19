@@ -3,6 +3,22 @@ p {
   font-family: Lato;
 }
 
+.block {
+  width: 150px;
+  height: 20px;
+  border-bottom: solid 1px #e0e0e0;
+}
+
+.blockRed {
+  width: 150px;
+  height: 20px;
+  border-bottom: none;
+}
+
+.block:hover {
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.08), 0px 8px 16px rgba(0, 0, 0, 0.08);
+}
+
 .bigImageWrapper {
   position: relative;
   height: 600px;
