@@ -43,21 +43,30 @@
   position: relative;
 }
 
-.dropdownInput {
+.dropdownValueWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.dropdownArrow {
+  width: 12px;
+  height: 12px;
+  margin-left: 6px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('https://storage.yandexcloud.net/alfaleasing/components/dropdown-arrow.svg');
+}
+
+.dropdownValue {
+  width: auto;
   border: none;
   outline: none;
 }
 
-.dropdownInput::after {
-  content: '';
-  width: 12px;
-  height: 12px;
-  background-image: url('https://storage.yandexcloud.net/alfaleasing/components/dropdown-arrow.png');
-}
-
 .dropdownList {
   position: absolute;
-  top: 32px;
+  top: 48px;
   left: 0;
   width: fit-content;
   padding: 16px 0;
@@ -83,13 +92,13 @@
 }
 
 .listIcon {
-  width: 15px;
-  height: 15px;
+  width: 16px;
+  height: 16px;
   margin-right: 6px;
 }
 
 .listIconActive {
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url('https://storage.yandexcloud.net/alfaleasing/components/dropdown-arrow.svg');
+  background-image: url('https://storage.yandexcloud.net/alfaleasing/components/dropdown-selected.svg');
 }

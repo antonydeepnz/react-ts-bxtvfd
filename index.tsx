@@ -4,6 +4,8 @@ import { ModalGallery, Select } from './Hello';
 import { Modelcard } from './modelCard';
 import { data, modelMappingData } from './data';
 
+import { Switch } from './radio';
+
 import { DropDown } from './dropdown';
 
 // const options = [
@@ -34,13 +36,19 @@ const App = () => {
   const [visible, setVisible] = useState(false);
   const [select, setSelect] = useState<string | number | null>(null);
 
+  const [val, setVal] = useState(drops[0].id);
+
+  const [switchVal, setSwitch] = useState(false);
+
   const refArr = useRef([]);
 
   console.warn('refs', refArr);
 
   return (
     <div>
-      <DropDown options={drops}/>
+      <DropDown options={drops} value={val} onSelect={setVal} />
+
+      <Switch value={switchVal} onClick={() => setSwitch(!switchVal)} />
       {/* <Select
         value={select}
         options={options}

@@ -17,10 +17,11 @@ import './dropdown.css';
 
 interface IDropDown {
   options: { id: string | number; text: string }[];
+  value: string | number | null;
+  onSelect: (value: string | number) => void;
 }
 
-export const DropDown: FC<IDropDown> = ({ options }) => {
-  const [val, setVal] = useState(options[0].id);
+export const DropDown: FC<IDropDown> = ({ options, value, onSelect }) => {
   const [showList, setShowList] = useState(false);
 
   const handleClickDropDown = () => {
@@ -28,25 +29,31 @@ export const DropDown: FC<IDropDown> = ({ options }) => {
   };
 
   const handleSelect = (id) => {
-    setVal(id);
+    onSelect(id);
     setShowList(false);
   };
 
   const selectedValue = useMemo(() => {
-    const value = options.find(({ id }) => id === val).text;
-    return value[0].toLowerCase() + value.slice(1);
-  }, [val]);
+    const selected = options.find(({ id }) => id === value).text;
+    return selected[0].toLowerCase() + selected.slice(1);
+  }, [value]);
 
   return (
     <div className={cn('dropdownWrapper')}>
-      <p className={cn('dropdownInput')} onClick={handleClickDropDown}>
-        {`По ${selectedValue}`}
-      </p>
+      <div className={cn('dropdownValueWrapper')}>
+        <p className={cn('dropdownValue')} onClick={handleClickDropDown}>
+          {`По ${selectedValue}`}
+        </p>
+        <div className={cn('dropdownArrow')}></div>
+      </div>
+
       {showList && (
         <div className={cn('dropdownList')} onBlur={() => setShowList(false)}>
           {options.map(({ id, text }) => (
             <div className={cn('listOption')} onClick={() => handleSelect(id)}>
-              <div className={cn('listIcon', { listIconActive: val === id })} />
+              <div
+                className={cn('listIcon', { listIconActive: value === id })}
+              />
               <p>{text}</p>
             </div>
           ))}

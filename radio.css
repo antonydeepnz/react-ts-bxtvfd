@@ -1,0 +1,35 @@
+.switchContainer {
+  position: relative;
+  width: 40px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  background: rgba(11, 31, 53, 0.2);
+  border-radius: 16px;
+  transition: all 0.3s;
+}
+
+.switchContainerActive {
+  background: #ef3124;
+}
+
+.switchContainer input {
+  display: none;
+}
+
+.switch {
+  position: absolute;
+  left: 0;
+  height: 19px;
+  width: 19px;
+  margin-left: 2px;
+  background-color: #fff;
+  border: 0.5px solid rgba(11, 31, 53, 0.05);
+  box-shadow: 0px 2px 4px rgba(11, 31, 53, 0.2);
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.switchActive {
+  left: calc(100% - 25px);
+}
